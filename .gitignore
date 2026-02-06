@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDEs
+.vscode/
+.idea/
+
+# Data and Results (User specific)
+data/input/*
+data/output/*
+!data/input/.gitkeep
+!data/output/.gitkeep
+Excel/Imported/*
+Excel/results/*
+!Excel/Imported/.gitkeep
+!Excel/results/.gitkeep
+Map_view/*.html
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak

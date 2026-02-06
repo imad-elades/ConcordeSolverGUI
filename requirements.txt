@@ -1,0 +1,17 @@
+﻿# Concorde Vision Solver - Requirements
+# (c) 2026 iM@Des - Tous droits reserves
+#
+# Installation:
+#   pip install -r requirements.txt
+
+# Core dependencies
+pandas>=1.3.0
+openpyxl>=3.0.0
+numpy>=1.20.0
+
+# GUI and visualization
+Pillow>=9.0.0
+folium>=0.12.0
+
+# Note: tkinter is included with Python standard library
+# Note: Concorde runs via WSL (Ubuntu-Concorde)

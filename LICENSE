@@ -1,0 +1,16 @@
+Copyright (c) 2026 iM@Des
+
+All Rights Reserved.
+
+NOTICE:  All information contained herein is, and remains the property of iM@Des. The intellectual and technical concepts contained herein are proprietary to iM@Des and may be covered by patents, patents in process, and are protected by trade secret or copyright law. Dissemination of this information or reproduction of this material is strictly forbidden unless prior written permission is obtained from iM@Des.
+
+---
+
+ACKNOWLEDGMENT OF THIRD-PARTY SOFTWARE
+
+This software serves as a Graphical User Interface (GUI) and preprocessing tool for the "Concorde TSP Solver".
+
+Concorde TSP Solver is developed by:
+William Cook, David Applegate, Robert Bixby, and Vasek Chvatal.
+Academic and research use of Concorde is subject to its own license terms.
+For details, visit: http://www.math.uwaterloo.ca/tsp/concorde/
