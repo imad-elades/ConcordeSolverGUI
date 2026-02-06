@@ -8,7 +8,7 @@ This application is designed for Windows environments, leveraging the Windows Su
 
 **Key Features:**
 *   **Optimal Solutions:** Guarantees the exact optimal solution using the Concorde solver.
-*   **High Precision:** Implements a rigorous Euclidean projection referenced to Gibraltar (Latitude 36.57 degrees), ensuring consistent meter-level accuracy for GPS coordinates.
+*   **High Precision:** Implements a rigorous Euclidean projection (default referenced to Gibraltar, Latitude 36.57 degrees), ensuring consistent meter-level accuracy for GPS coordinates.
 *   **Data Integration:** Native support for Excel (.xlsx) and CSV files with automatic column detection.
 *   **Interactive Visualization:** Generates interactive HTML maps showing the optimal tour path.
 *   **Configurable:** Allows fine-tuning of Concorde parameters (Seed, Time Limit, Fast Cuts).
@@ -46,13 +46,12 @@ We need to compile the Concorde solver specifically for your system.
     sudo apt update
     sudo apt install build-essential gcc make curl
     ```
-3.  Create the directory structure (strictly required for this application):
-    The application expects Concorde to be located at `/mnt/d/Concorde`.
-    
-    *Note: If you do not have a D: drive, you will need to modify the `paths` dictionary in `Concorde_Vision_Solver.py`.*
+3.  Create the directory structure. 
+    *Recommendation: We suggest using a dedicated folder on your main data driver (e.g., `D:\Concorde` or `C:\Concorde`).*
+    *Note: Update the `paths` dictionary in `Concorde_Vision_Solver.py` if you use a path different from the default `/mnt/d/Concorde`.*
 
     ```bash
-    # Create directory on D: drive (ensure D: exists in Windows)
+    # Create directory (replace /mnt/d/Concorde with your chosen path)
     mkdir -p /mnt/d/Concorde/bin
     
     # Download QSopt (Linear Programming solver required by Concorde)
@@ -87,10 +86,7 @@ We need to compile the Concorde solver specifically for your system.
 1.  Download and Install Python 3.8 or newer from [python.org](https://www.python.org/).
     *   **Crucial:** Check the box "Add Python to PATH" during installation.
 2.  Open Command Prompt or PowerShell (Windows).
-3.  Navigate to the project directory:
-    ```powershell
-    cd D:\Concorde\Concorde_Graphique
-    ```
+3.  Navigate to the project directory.
 4.  Install the required Python dependencies:
     ```powershell
     pip install -r requirements.txt
@@ -98,10 +94,7 @@ We need to compile the Concorde solver specifically for your system.
 
 ## Usage
 
-1.  Navigate to the application folder:
-    ```powershell
-    cd D:\Concorde\Concorde_Graphique
-    ```
+1.  Navigate to the application folder.
 2.  Launch the application:
     ```powershell
     python Concorde_Vision_Solver.py
@@ -117,9 +110,14 @@ We need to compile the Concorde solver specifically for your system.
 
 **Coordinate Projection:**
 To ensure maximum precision suitable for Concorde's Euclidean distance calculations (`EUC_2D`), this tool uses a custom Equirectangular projection.
-*   **Reference Latitude:** 36.57 degrees (Gibraltar).
-*   **Precision:** Coordinates are converted to meters with 6 decimal places.
-*   This specific projection minimizes distortion for the target geographic area and ensures metric consistency between the optimization engine and the reported results.
+
+*   **Default Reference Latitude:** 36.57 degrees (Gibraltar).
+*   **Default Precision:** 6 decimal places.
+
+**Customization:**
+You are encouraged to adapt the source code to fit your specific geographic needs.
+*   **Changing Reference:** You can modify the `GIBRALTAR_LAT` constant in `tsp_converter.py` and `Concorde_Vision_Solver.py` to set a different reference latitude.
+*   **Changing Precision:** You can adjust the formatting strings in `tsp_converter.py` to change the decimal precision of the generated TSP file.
 
 ## Credits
 
@@ -132,5 +130,9 @@ Reference: [http://www.math.uwaterloo.ca/tsp/concorde/](http://www.math.uwaterlo
 
 ## License
 
-This project is proprietary. Unauthorized copying, modification, or distribution is strictly prohibited.
+Copyright (c) 2026 iM@Des.
+
+Permission is hereby granted to modify and adapt the source code of this application (including projection parameters and precision settings) for your personal or professional use.
+Redistribution of modified versions is permitted provided that credit to the original developer (iM@Des) is maintained.
+
 The underlying Concorde solver is subject to its own academic use license.
